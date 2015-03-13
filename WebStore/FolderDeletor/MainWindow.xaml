@@ -1,0 +1,12 @@
+﻿<Window x:Class="FolderDeletor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="150" Width="225">
+    <Grid>
+
+        <Button Name="_deleteBtn" Content="Delete Folder" HorizontalAlignment="Right" Margin="0,0,21,30" VerticalAlignment="Bottom" Width="85" Click="onDeleteHandler" />
+        <Label Name="_statusLb" Content="" HorizontalAlignment="Left" Margin="19,24,0,0" VerticalAlignment="Top" Width="56"/>
+        <ProgressBar Name="_statusBar"  HorizontalAlignment="Left" Height="7" Margin="111,33,0,0" VerticalAlignment="Top" Width="85"/>
+
+    </Grid>
+</Window>

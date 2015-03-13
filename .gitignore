@@ -1,0 +1,29 @@
+#Folders
+WebStore/WebApi/obj/
+WebStore/WebApi/bin/
+
+WebStore/FolderDeletor/obj/
+WebStore/FolderDeletor/bin/
+
+WebStore/DAL/obj/
+WebStore/DAL/bin/
+
+WebStore/DAL.EntityFramework/obj/
+WebStore/DAL.EntityFramework/bin/
+
+WebStore/packages/
+!WebStore/packages/repositories.config
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+*.DotSettings
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile

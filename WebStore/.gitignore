@@ -1,0 +1,26 @@
+#Folders
+WebApi\obj\
+WebApi\bin\
+
+FolderDeletor\obj\
+FolderDeletor\bin\
+
+DAL\obj\
+DAL\bin\
+
+DAL.EntityFramework\obj\
+DAL.EntityFramework\bin\
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+*.DotSettings
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
