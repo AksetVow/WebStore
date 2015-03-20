@@ -8,7 +8,12 @@
  * Controller of the gspaApp
  */
 angular.module('gspaApp')
-  .controller('CartCtrl', function ($scope, cart) {
+  .controller('CartCtrl', function ($scope, $location,  cart) {
+      if (cart.getLength() == 0) {
+          $location.path('main');
+      }
+
+
       $scope.products = cart.getProducts();
 
       $scope.totalPrice = cart.getTotalPrice();

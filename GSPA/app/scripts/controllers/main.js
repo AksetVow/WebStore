@@ -22,7 +22,6 @@ angular.module('gspaApp')
       success(function (data, status, headers, config)
       {
           $scope.products = [];
-          console.log(data);
           var i;
           for (i = 0; i < data.Items.length; i++) {
               $scope.products.push(data.Items[i]);
@@ -30,7 +29,6 @@ angular.module('gspaApp')
       }).
       error(function (data, status, headers, config)
       {
-          config.log(data);
       })
 
       $scope.detail = function (product)
