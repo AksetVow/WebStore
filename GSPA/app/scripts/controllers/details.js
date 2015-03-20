@@ -8,12 +8,16 @@
  * Controller of the gspaApp
  */
 angular.module('gspaApp')
-  .controller('DetailsCtrl', function ($scope, $location, selectedproduct) {
+  .controller('DetailsCtrl', function ($scope, $location, selectedproduct, cart) {
       $scope.product = selectedproduct.getProduct();
 
       if (!$scope.product)
       {
           $location.path('main')
+      }
+
+      $scope.addToCart = function (product) {
+          cart.addProduct(product, 1); //fixme
       }
 
   });

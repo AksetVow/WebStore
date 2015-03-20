@@ -7,18 +7,24 @@
     <div class="col-lg-12">
         <img class="img-responsive" ng-src="{{product.ImageAddress}}" alt="">
     </div>
-</div>	
+</div>
 
 <div class="row">
     <div class="col-lg-12">
-			<table class="table table-bordered">
-				<tbody>
-					<tr class="techSpecRow"><th colspan="2">Опис Продукту</th></tr>
-                    <tr class="techSpecRow"><td class="techSpecTD1">Назва:</td><td>{{product.Name}}</td></tr>
-					<tr class="techSpecRow"><td class="techSpecTD1">Деталі: </td><td>{{product.Description}}</td></tr>
-					<tr class="techSpecRow"><td class="techSpecTD1">Ціна</td><td> {{product.Price}} ₴</td></tr>
-                    <tr class="techSpecRow"><td class="techSpecTD1">Є в наявності</td><td> {{product.Available}} </td></tr>
-				</tbody>
-			</table>
+        <table class="table table-bordered">
+            <tbody>
+                <tr class="techSpecRow"><th colspan="2">Опис Продукту</th></tr>
+                <tr class="techSpecRow"><td class="techSpecTD1">Назва:</td><td>{{product.Name}}</td></tr>
+                <tr class="techSpecRow"><td class="techSpecTD1">Деталі: </td><td>{{product.Description}}</td></tr>
+                <tr class="techSpecRow"><td class="techSpecTD1">Ціна</td><td> {{product.Price}} ₴</td></tr>
+                <tr class="techSpecRow"><td class="techSpecTD1">Є в наявності</td><td> {{product.Available}} </td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="btn btn-default pull-right" ng-click="addToCart(product)">Додати в кошик</div>
     </div>
 </div>

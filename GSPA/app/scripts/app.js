@@ -40,7 +40,11 @@ app.config(function ($routeProvider) {
       .when('/delivery', {
         templateUrl: 'views/delivery.html',
         controller: 'DeliveryCtrl'
-      })	  
+      })
+      .when('/cart', {
+          templateUrl: 'views/cart.html',
+          controller: 'CartCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

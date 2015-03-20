@@ -1,0 +1,54 @@
+﻿
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 1px solid black;
+    }
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Ваша корзина</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Всього продуктів : {{length}}</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h3>Загальна сума : {{totalPrice}}</h3>
+        <br />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table>
+            <tr>
+                <td class="col-lg-4">Назва</td>
+                <td class="col-lg-4">Ціна</td>
+                <td class="col-lg-4">Кількість</td>
+            </tr>
+            <tr ng-repeat="item in products">
+                <td class="col-lg-4">{{item.product.Name}}</td>
+                <td class="col-lg-4">{{item.product.Price}}</td>
+                <td class="col-lg-4">{{item.count}}</td>
+            </tr>
+        </table>
+        <br />
+        <br />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="btn btn-default pull-right" ng-click="order()"> Замовити </div>
+    </div>
+</div>

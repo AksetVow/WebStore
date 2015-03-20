@@ -8,7 +8,7 @@
  * Controller of the gspaApp
  */
 angular.module('gspaApp')
-  .controller('MainCtrl', function ($scope, appConfig, $http, $location, selectedproduct) {
+  .controller('MainCtrl', function ($scope, appConfig, $http, $location, selectedproduct, cart) {
 
       $scope.products = [];
 
@@ -37,6 +37,11 @@ angular.module('gspaApp')
       {
           selectedproduct.setProduct(product);
           $location.path('details')
+      }
+
+      $scope.addToCart = function (product)
+      {
+          cart.addProduct(product, 1); //fixme
       }
 
 
