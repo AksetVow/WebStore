@@ -17,13 +17,13 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h3>Всього продуктів : {{length}}</h3>
+        <h3>Всього продуктів : {{length()}}</h3>
     </div>
 </div>
 
 <div class="row">
     <div class="col-lg-12">
-        <h3>Загальна сума : {{totalPrice}}</h3>
+        <h3>Загальна сума : {{totalPrice()}}</h3>
         <br />
     </div>
 </div>
@@ -32,14 +32,16 @@
     <div class="col-lg-12">
         <table>
             <tr>
-                <td class="col-lg-4">Назва</td>
-                <td class="col-lg-4">Ціна</td>
-                <td class="col-lg-4">Кількість</td>
+                <td class="col-lg-3">Назва</td>
+                <td class="col-lg-3">Ціна</td>
+                <td class="col-lg-3">Кількість</td>
+                <td class="col-lg-3">Видалити</td>
             </tr>
-            <tr ng-repeat="item in products">
-                <td class="col-lg-4">{{item.product.Name}}</td>
-                <td class="col-lg-4">{{item.product.Price}}</td>
-                <td class="col-lg-4">{{item.count}}</td>
+            <tr ng-repeat="item in products()">
+                <td class="col-lg-3">{{item.product.Name}}</td>
+                <td class="col-lg-3">{{item.product.Price}}</td>
+                <td class="col-lg-3">{{item.count}}</td>
+                <td class="col-lg-3 btn btn-default" ng-click="delete(item.product)">Видалити</td>
             </tr>
         </table>
         <br />
@@ -49,6 +51,7 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <div class="btn btn-default pull-left" ng-click="deleteAll()"> Очистити </div>
         <div class="btn btn-default pull-right" ng-click="order()"> Замовити </div>
     </div>
 </div>

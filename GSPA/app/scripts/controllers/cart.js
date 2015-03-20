@@ -9,20 +9,34 @@
  */
 angular.module('gspaApp')
   .controller('CartCtrl', function ($scope, $location,  cart) {
-      if (cart.getLength() == 0) {
-          $location.path('main');
+	if (cart.getLength() == 0) {
+		$location.path('main');
+	}
+	  
+	$scope.products = function () {
+		return cart.getProducts();
+	}
+
+      $scope.totalPrice = function () {
+          return cart.getTotalPrice();
       }
 
-
-      $scope.products = cart.getProducts();
-
-      $scope.totalPrice = cart.getTotalPrice();
-
-      $scope.length = cart.getLength();
+      $scope.length = function () {
+          return cart.getLength();
+      }
 
       $scope.order = function ()
       {
           // add some call to back end
-          console.log('Make order', $scope.products);
+          console.log('Make order', $scope.products());
       }
+
+      $scope.delete = function (product) {
+          cart.deleteProduct(product);
+      }
+
+      $scope.deleteAll = function () {
+          cart.deleteAll();
+      }
+
   });

@@ -28,6 +28,18 @@ angular.module('gspaApp')
           return undefined;
       }
 
+      var findProductIndex = function (product) {
+          var i;
+
+          for (i = 0; i < products.length; i++) {
+              if (product === products[i].product) {
+                  return i;
+              }
+          }
+
+          return undefined;
+      }
+
 
       cartfactory.addProduct = function (product, count)
       {
@@ -39,6 +51,18 @@ angular.module('gspaApp')
           else {
               products.push({ product: product, count: count });
           }
+      }
+
+      cartfactory.deleteProduct = function (product) {
+          var index = findProductIndex(product);
+
+          if (index != undefined) {
+              products.splice(index, 1);
+          }
+      }
+
+      cartfactory.deleteAll = function () {
+          products = [];
       }
 
       cartfactory.getProducts = function () {
