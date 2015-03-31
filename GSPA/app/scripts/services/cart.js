@@ -8,11 +8,17 @@
  * Factory in the gspaApp.
  */
 angular.module('gspaApp')
-  .factory('cart', function () {
+  .factory('cart', function ($cookieStore) {
 
       var cartfactory = {};
-      
-      var products = [];
+
+      var key = 'products_93c349ff';
+
+      var products = $cookieStore.get(key);
+      if (!products)
+      {
+          products = [];
+      }
 
       var findProduct = function (product)
       {
@@ -51,6 +57,8 @@ angular.module('gspaApp')
           else {
               products.push({ product: product, count: count });
           }
+
+          $cookieStore.put(key, products);
       }
 
       cartfactory.deleteProduct = function (product) {
@@ -59,10 +67,14 @@ angular.module('gspaApp')
           if (index != undefined) {
               products.splice(index, 1);
           }
+
+          $cookieStore.put(key, products);
       }
 
       cartfactory.deleteAll = function () {
           products = [];
+
+          $cookieStore.put(key, products);
       }
 
       cartfactory.getProducts = function () {
