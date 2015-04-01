@@ -8,39 +8,53 @@
  * Controller of the gspaApp
  */
 angular.module('gspaApp')
-  .controller('MainCtrl', function ($scope, appConfig, $http, $location, selectedproduct, cart) {
+  .controller('MainCtrl', function ($scope, appConfig, $http, $location, selectedproduct, cart, paginate) {
+        $scope.products = [];
 
-      $scope.products = [];
+        //TODO duplication constant from back-end
+        $scope.numPerPage = 8;
+        $scope.currentPage = 1;
+        $scope.totalItems = 0;
 
-      $scope.temp = "images/tshirt.jpg";
+        var urlPage = appConfig.apiUrl + "Products";
 
-      var urlPage = appConfig.apiUrl + "Products";
-      $http({
-          method: "Get",
-          url: urlPage
-      }).
-      success(function (data, status, headers, config)
-      {
-          $scope.products = [];
-          var i;
-          for (i = 0; i < data.Items.length; i++) {
-              $scope.products.push(data.Items[i]);
-          }
-      }).
-      error(function (data, status, headers, config)
-      {
-      })
+        var requestProducts = function (page, itemsPerPage, urlPage)
+        {
+            urlPage = paginate.generateNavigationUrl(urlPage, page, itemsPerPage);
+            
+            $http({
+                method: "Get",
+                url: urlPage
+            }).
+            success(function (data, status, headers, config) {
+                $scope.products = [];
+                var i;
+                for (i = 0; i < data.Items.length; i++) {
+                    $scope.products.push(data.Items[i]);
+                }
 
-      $scope.detail = function (product)
-      {
-          selectedproduct.setProduct(product);
-          $location.path('details')
-      }
+                $scope.totalItems = data.Count;
+                console.log($scope.totalItems);
+            }).
+            error(function (data, status, headers, config) {
+            })
+        }
 
-      $scope.addToCart = function (product)
-      {
-          cart.addProduct(product, 1); //fixme
-      }
+        requestProducts($scope.currentPage, $scope.numPerPage, urlPage);
 
+        $scope.detail = function (product)
+        {
+            selectedproduct.setProduct(product);
+            $location.path('details')
+        }
+
+        $scope.addToCart = function (product)
+        {
+            cart.addProduct(product, 1); //fixme
+        }
+
+        $scope.$watch('currentPage', function() {
+            requestProducts($scope.currentPage, $scope.numPerPage, urlPage);
+       });
 
   });

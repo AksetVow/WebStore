@@ -16,6 +16,7 @@ namespace WebApi.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRepositoryProvider<Product> _repository;
+        private const int PageSize = 8;
 
         public ProductController(IUnitOfWork unitOfWork)
         {
@@ -30,10 +31,15 @@ namespace WebApi.Controllers
             IEnumerable<Product> products;
             long count = -1;
 
+            var settings = new ODataQuerySettings()
+            {
+                PageSize = PageSize
+            };
+
             try
             {
                 var queryableProducts = _repository.Get();
-                products = queryOptions.ApplyTo(queryableProducts) as IEnumerable<Product>;
+                products = queryOptions.ApplyTo(queryableProducts, settings) as IEnumerable<Product>;
                 count = queryableProducts.Count();
                 
             }
