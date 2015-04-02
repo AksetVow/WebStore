@@ -30,7 +30,7 @@ angular.module('gspaApp')
                 $scope.products = [];
                 var i;
                 for (i = 0; i < data.Items.length; i++) {
-                    $scope.products.push(data.Items[i]);
+                    $scope.products.push({ product: data.Items[i], count: 1 });
                 }
 
                 $scope.totalItems = data.Count;
@@ -48,9 +48,13 @@ angular.module('gspaApp')
             $location.path('details')
         }
 
-        $scope.addToCart = function (product)
+        $scope.addToCart = function (product, count)
         {
-            cart.addProduct(product, 1); //fixme
+            if (!count || count == 0) {
+                count = 1;
+            }
+
+            cart.addProduct(product, count); 
         }
 
         $scope.$watch('currentPage', function() {

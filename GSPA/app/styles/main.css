@@ -106,15 +106,21 @@ table, td, th {
 
 .img-icon-small {
     width: 16px; 
-    height:16px
+    height:16px;
 }
 
 .img-product {
     width:120px;
-    height:120px
+    height:120px;
 }
 
 .img-product-detailed {
     width:380px;
-    height:380px
+    height:380px;
+}
+
+.counter{
+    width:36px; 
+    height:30px;
+    border-radius: 4px;
 }
