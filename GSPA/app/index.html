@@ -54,7 +54,7 @@
                         <a href="#/contacts">Наші контакти</a>
                     </li>
                     <li ng-controller="MinicartCtrl">
-                        <a href="#/cart">
+                        <a href="#/cart" ng-if="isVisible()">
                             Товарів :{{length()}} Ціна: {{totalPrice() }}
                         </a>
                     </li>

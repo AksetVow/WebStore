@@ -8,7 +8,7 @@
  * Factory in the gspaApp.
  */
 angular.module('gspaApp')
-  .factory('cart', function ($cookieStore) {
+  .factory('cart', function ($location, $cookieStore) {
 
       var cartfactory = {};
 
@@ -69,12 +69,18 @@ angular.module('gspaApp')
           }
 
           $cookieStore.put(key, products);
+
+          if (cartfactory.getLength() == 0)
+          {
+              $location.path('main');
+          }
       }
 
       cartfactory.deleteAll = function () {
           products = [];
 
           $cookieStore.put(key, products);
+          $location.path('main');
       }
 
       cartfactory.getProducts = function () {

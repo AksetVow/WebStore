@@ -11,15 +11,14 @@ angular.module('gspaApp')
   .controller('MinicartCtrl', function ($scope, cart) {
 
       $scope.totalPrice = function() {
-          return cart.getTotalPrice();
+        return cart.getTotalPrice();
       }
 
       $scope.length = function () {
-          return cart.getLength();
+        return cart.getLength();
       }
 
-      $scope.isVisible = function ()
-      {
-          return cart.getLength() > 0;
+      $scope.isVisible = function (){
+        return cart.getLength() > 0;
       }
   });
