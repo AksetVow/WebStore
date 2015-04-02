@@ -96,3 +96,12 @@ html, body {
 .footer, .push {
 	height: 25px; /* .push must be the same height as .footer */
 }
+
+/* table styles*/
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
