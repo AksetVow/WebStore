@@ -8,7 +8,7 @@
  * Controller of the gspaApp
  */
 angular.module('gspaApp')
-  .controller('MainCtrl', function ($scope, appConfig, $http, $location, selectedproduct, cart, paginate) {
+  .controller('MainCtrl', function ($scope, appConfig, $http, $location, selectedproduct, cart, paginate, sort) {
         $scope.products = [];
 
         //TODO duplication constant from back-end
@@ -16,12 +16,16 @@ angular.module('gspaApp')
         $scope.currentPage = 1;
         $scope.totalItems = 0;
 
+        $scope.sortOrder = '';
+        $scope.sortItem;
+
         var urlPage = appConfig.apiUrl + "Products";
 
-        var requestProducts = function (page, itemsPerPage, urlPage)
+        var requestProducts = function (urlPage)
         {
-            urlPage = paginate.generateNavigationUrl(urlPage, page, itemsPerPage);
-            
+            urlPage = paginate.generateNavigationUrl(urlPage, $scope.currentPage, $scope.numPerPage);
+            urlPage = sort.generateSortUrl(urlPage, $scope.sortItem, $scope.sortOrder);
+
             $http({
                 method: "Get",
                 url: urlPage
@@ -40,7 +44,7 @@ angular.module('gspaApp')
             })
         }
 
-        requestProducts($scope.currentPage, $scope.numPerPage, urlPage);
+        requestProducts(urlPage);
 
         $scope.detail = function (product)
         {
@@ -57,8 +61,19 @@ angular.module('gspaApp')
             cart.addProduct(product, count); 
         }
 
+        $scope.sortByItem = function ()
+        {
+            requestProducts(urlPage);
+        }
+
+        $scope.changeSortOrder = function ()
+        {
+            requestProducts(urlPage);
+        }
+
+
         $scope.$watch('currentPage', function() {
-            requestProducts($scope.currentPage, $scope.numPerPage, urlPage);
+            requestProducts(urlPage);
        });
 
   });

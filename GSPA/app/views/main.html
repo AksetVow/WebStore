@@ -4,15 +4,14 @@
             <div class="page-header">
                 <span class="header-span">Основні товари</span> 
                 <span class="pull-right"> Сортувати по : 
-                    <select>
-                        <option disabled selected> </option>
-                        <option value="price">Ціні</option>
-                        <option value="name">Імені</option>
+                    <select ng-model="sortItem" ng-change="sortByItem()">
+                        <option value="Price">Ціні</option>
+                        <option value="Name">Імені</option>
                     </select> 
                 і :
-                    <select>
-                        <option value="increase">зростанню</option>
-                        <option value="decrease">спаданню</option>
+                    <select ng-model="sortOrder" ng-change="changeSortOrder()">
+                        <option value="">зростанню</option>
+                        <option value=" desc">спаданню</option>
                     </select>
                 </span> 
             </div>

@@ -13,12 +13,12 @@ angular.module('gspaApp')
 
       paginatefactory.generateNavigationUrl = function (url, pageNumber, pageSize, sortBy) {
           var skip = (pageNumber - 1) * pageSize;
-          if (!sortBy) {
-              return url + '/?$skip=' + skip;
+          if (url.indexOf('?') !== -1) {
+              return url + '&$skip=' + skip;
           }
           else
           {
-              return url + '/?$skip=' + skip + '&$sortby=' + sortBy;
+              return url + '/?$skip=' + skip;
           }
       }
 
