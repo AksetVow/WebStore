@@ -129,3 +129,8 @@ table, td, th {
     background-color:rgba(51, 122, 183, 0.82);
     border: 11px solid rgba(51, 122, 183, 0.82);
 }
+
+.header-span {
+    font-size:x-large;
+    font-weight:700;
+}
