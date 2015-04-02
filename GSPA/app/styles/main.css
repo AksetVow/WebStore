@@ -124,3 +124,8 @@ table, td, th {
     height:30px;
     border-radius: 4px;
 }
+
+.cart{
+    background-color:rgba(51, 122, 183, 0.82);
+    border: 11px solid rgba(51, 122, 183, 0.82);
+}
