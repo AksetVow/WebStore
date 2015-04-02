@@ -12,7 +12,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h3>Загальна сума : {{totalPrice()}}</h3>
+        <h3>Загальна сума : {{totalPrice() | currency:"₴"}}</h3>
         <br />
     </div>
 </div>
@@ -28,7 +28,7 @@
             </tr>
             <tr ng-repeat="item in products()">
                 <td class="col-lg-3">{{item.product.Name}}</td>
-                <td class="col-lg-3">{{item.product.Price}}</td>
+                <td class="col-lg-3">{{item.product.Price | currency:"₴"}}</td>
                 <td class="col-lg-3">{{item.count}}</td>
                 <td class="col-lg-3 btn btn-default" ng-click="delete(item.product)">Видалити</td>
             </tr>
