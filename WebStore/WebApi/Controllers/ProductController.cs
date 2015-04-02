@@ -16,7 +16,7 @@ namespace WebApi.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IRepositoryProvider<Product> _repository;
-        private const int PageSize = 8;
+        private const int PageSize = 12;
 
         public ProductController(IUnitOfWork unitOfWork)
         {

@@ -12,7 +12,7 @@ angular.module('gspaApp')
         $scope.products = [];
 
         //TODO duplication constant from back-end
-        $scope.numPerPage = 8;
+        $scope.numPerPage = 12;
         $scope.currentPage = 1;
         $scope.totalItems = 0;
 

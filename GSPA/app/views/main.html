@@ -6,21 +6,18 @@
 
 <div class="row">
     <div ng-repeat="product in products" class="col-md-3 portfolio-item">
-        <div ng-click="detail(product)"><img class="img-responsive" ng-src="{{product.ImageAddress}}" alt=""></div> <!--change to parameter -->
+        <div ng-click="detail(product)"><img class="img-responsive img-product" ng-src="{{product.ImageAddress}}" alt=" "></div> 
         <div class="caption">
-            <h3>{{product.Name}}</h3>
-            <h3>
-                <div class="btn btn-default" ng-click="detail(product)"><img style="width: 16px; height:16px" class="img-responsive" ng-src="images/details.png" alt=""></div>
-                <div class="btn btn-default" ng-click="addToCart(product)"><img style=" width: 16px; height:16px" class="img-responsive" ng-src="images/buy.png" alt=""></div>
-                <span class="pull-right">₴{{product.Price}}</span>
-            </h3>
+            <p>{{product.Name}} <span> {{product.Price | currency:"₴"}}</span> </p>
+                <div class="btn btn-default" ng-click="detail(product)"><img class="img-responsive img-icon-small" ng-src="images/details.png" alt=""></div>
+                <div class="btn btn-default" ng-click="addToCart(product)"><img class="img-responsive img-icon-small" ng-src="images/buy.png" alt=""></div>
         </div>
     </div>
 </div>
 
 <div class="row">
     <div class="span12 text-center">
-        <pagination total-items="totalItems" ng-model="currentPage"
+        <pagination total-items="totalItems" ng-model="currentPage" items-per-page="numPerPage"
                     direction-links="true" boundary-links="true"
                     first-text="Перша" last-text="Остання" previous-text="Попередня" next-text="Наступна">
         </pagination>
