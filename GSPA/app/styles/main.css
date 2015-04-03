@@ -134,3 +134,7 @@ table, td, th {
     font-size:x-large;
     font-weight:700;
 }
+
+.paginate-panel{
+    margin-bottom : 50px;
+}
