@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#/main">Головна</a>
+                <a class="navbar-brand" href="#/main" id="main">Головна</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -130,6 +130,12 @@
         <script src="scripts/services/paginate.js"></script>
         <script src="scripts/services/sort.js"></script>
         <!-- endbuild -->	
+
+    <script>
+        $(document).on('click', '#bs-example-navbar-collapse-1.in, #main', function (e) {
+            $('#bs-example-navbar-collapse-1').collapse('hide');
+        });
+    </script>
 	
 	
 </body>
