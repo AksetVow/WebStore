@@ -1,0 +1,97 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <p>
+            <div class="page-header">
+                <span class="header-span">Основні товари</span>
+                <span class="pull-right">
+                    Сортувати по :
+                    <select ng-model="sortItem" ng-change="sortByItem()">
+                        <option value="Price">Ціні</option>
+                        <option value="Name">Імені</option>
+                    </select>
+                    і :
+                    <select ng-model="sortOrder" ng-change="changeSortOrder()">
+                        <option value="">зростанню</option>
+                        <option value=" desc">спаданню</option>
+                    </select>
+                </span>
+            </div>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div ng-repeat="item in products" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 portfolio-item">
+        <div><img class="img-responsive img-product" ng-src="{{item.product.ImageAddress}}" alt=" "></div>
+        <div class="caption">
+            <p>{{item.product.Name}} <span> {{item.product.Price | currency:"₴"}}</span> </p>
+            <div class="btn btn-default glyphicon glyphicon-edit" data-toggle="modal" data-target="#updateModal"></div>
+            <div class="btn btn-default glyphicon glyphicon-trash pull-right" data-toggle="modal" data-target="#deleteModal"></div>
+        </div>
+    </div>
+</div>
+
+<div class="row bottom-row">
+    <div class="span12 text-center">
+        <pagination total-items="totalItems" ng-model="currentPage" items-per-page="numPerPage"
+                    direction-links="true" boundary-links="true"
+                    first-text="Перша" last-text="Остання" previous-text="Попередня" next-text="Наступна">
+        </pagination>
+    </div>
+</div>
+
+
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal-Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="deleteModal-Label">Видалення товару</h4>
+            </div>
+            <div class="modal-body">
+                Ви впевнені що хочете видалити даний товар ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left">Так</button>
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Ні</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModal-Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="updateModal-Label">Видалення товару</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <img class="img-responsive img-product-detailed" ng-src="{{product.ImageAddress}}" alt="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr class="techSpecRow"><th colspan="2">Опис Продукту</th></tr>
+                                <tr class="techSpecRow"><td class="techSpecTD1">Назва:</td><td>{{product.Name}}</td></tr>
+                                <tr class="techSpecRow"><td class="techSpecTD1">Деталі: </td><td>{{product.Description}}</td></tr>
+                                <tr class="techSpecRow"><td class="techSpecTD1">Ціна</td><td> {{product.Price}} ₴</td></tr>
+                                <tr class="techSpecRow"><td class="techSpecTD1">Є в наявності</td><td> {{product.Available}} </td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left">Зберегти</button>
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Відмінити</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -46,6 +46,10 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/cart.html',
           controller: 'CartCtrl'
       })
+      .when('/admin', {
+          templateUrl: 'views/admin.html',
+          controller: 'AdminCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
