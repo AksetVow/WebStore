@@ -56,14 +56,14 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container-fluid main">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar" ng-controller="SidebarCtrl">
                 <div ng-include="'views/sidebar.html'">
                 </div>
             </div>
 
-            <div class="col-sm-9 col-md-10" ng-view="">
+            <div class="col-sm-9 col-md-10 main" ng-view="">
             </div>
         </div>
 
@@ -129,6 +129,7 @@
     <script src="scripts/controllers/admin.js"></script>
     <script src="scripts/controllers/sidebar.js"></script>
     <script src="scripts/services/categories.js"></script>
+    <script src="scripts/controllers/application.js"></script>
     <!-- endbuild -->
 
     <script>
