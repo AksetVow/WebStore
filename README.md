@@ -20,3 +20,5 @@ Client SPA workplace setup instructions.
 	$npm install grunt --save-dev
 	$npm install
 	$grunt serve
+
+9. Max changes
