@@ -21,5 +21,5 @@ Client SPA workplace setup instructions.
 	$npm install
 	$grunt serve
 
-	ergerg
+	wefwefwdfbdgbdfbfgn
 
