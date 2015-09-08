@@ -23,3 +23,4 @@ Client SPA workplace setup instructions.
 
 	my changes
 
+	new update
